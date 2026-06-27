@@ -1,0 +1,255 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap");
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:"Inter",sans-serif;
+    background:#f8f5f1;
+}
+
+/* ========================= */
+
+.elite4{
+    width:100%;
+    padding:100px 0;
+    background:#f8f5f1;
+}
+
+.elite4-container{
+    width:90%;
+    max-width:1400px;
+    margin:auto;
+}
+
+/* ========================= */
+/* TOP */
+/* ========================= */
+
+.elite4-top{
+    width:100%;
+    max-width:760px;
+    margin:0 auto 70px;
+    text-align:center;
+}
+
+.elite4-top h2{
+    font-family:"Cormorant Garamond",serif;
+    font-size:60px;
+    font-weight:600;
+    color:#1b1b1b;
+    margin-bottom:22px;
+}
+
+.elite4-top p{
+    font-size:18px;
+    line-height:34px;
+    color:#666;
+}
+
+/* ========================= */
+/* GRID */
+/* ========================= */
+
+.elite4-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:28px;
+}
+
+/* ========================= */
+/* CARD */
+/* ========================= */
+
+.elite4-card{
+
+    background:#fff;
+
+    border-radius:24px;
+
+    padding:38px 30px;
+
+    transition:.35s;
+
+    border:1px solid #ececec;
+
+    cursor:pointer;
+
+}
+
+.elite4-card:hover{
+
+    transform:translateY(-10px);
+
+    box-shadow:0 20px 40px rgba(0,0,0,.08);
+
+}
+
+/* ========================= */
+
+.elite4-icon{
+
+    width:62px;
+
+    height:62px;
+
+    border-radius:50%;
+
+    background:#f5ebe0;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    margin-bottom:28px;
+
+    transition:.35s;
+
+}
+
+.elite4-card:hover .elite4-icon{
+
+    background:#9B6A3D;
+
+}
+
+.elite4-card:hover .elite4-icon svg path{
+
+    fill:white;
+
+}
+
+/* ========================= */
+
+.elite4-card h3{
+
+    font-family:"Cormorant Garamond",serif;
+
+    font-size:28px;
+
+    color:#222;
+
+    margin-bottom:18px;
+
+    transition:.35s;
+
+}
+
+.elite4-card:hover h3{
+
+    color:#9B6A3D;
+
+}
+
+.elite4-card p{
+
+    color:#666;
+
+    line-height:30px;
+
+    font-size:15px;
+
+}
+
+/* ========================= */
+
+@media(max-width:1200px){
+
+.elite4-grid{
+
+grid-template-columns:repeat(2,1fr);
+
+}
+
+}
+
+/* ========================= */
+
+@media(max-width:768px){
+
+.elite4{
+
+padding:70px 0;
+
+}
+
+.elite4-top{
+
+margin-bottom:45px;
+
+}
+
+.elite4-top h2{
+
+font-size:42px;
+
+}
+
+.elite4-top p{
+
+font-size:16px;
+
+line-height:30px;
+
+}
+
+.elite4-grid{
+
+grid-template-columns:1fr;
+
+gap:20px;
+
+}
+
+.elite4-card{
+
+padding:30px 24px;
+
+}
+
+}
+
+/* ========================= */
+
+@media(max-width:480px){
+
+.elite4-top h2{
+
+font-size:34px;
+
+}
+
+.elite4-top p{
+
+font-size:15px;
+
+line-height:28px;
+
+}
+
+.elite4-card h3{
+
+font-size:24px;
+
+}
+
+.elite4-card p{
+
+font-size:14px;
+
+}
+
+.elite4-icon{
+
+width:54px;
+
+height:54px;
+
+}
+
+}
