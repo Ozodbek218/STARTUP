@@ -34,6 +34,7 @@ const products = [
   },
   {
     id: 3,
+    name: "Napoli Stul",
     desc: "Shiftgacha, LED yoritish, Hettich.",
     price: "11 900 000 so'm",
     img: img9,
