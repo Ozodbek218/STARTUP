@@ -7,23 +7,26 @@
   width: 90%;
   max-width: 1400px;
   margin: 0 auto 35px;
-
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
+
 .catalog-title {
   font-family: "Cormorant Garamond", serif;
   font-size: 56px;
   font-weight: 600;
   color: #111;
 }
+
 .prev-btn {
   left: -25px;
 }
+
 .next-btn {
   right: -25px;
 }
+
 .view-all {
   font-size: 15px;
   color: #555;
@@ -50,11 +53,10 @@
 .carousel-wrapper {
   width: 90%;
   max-width: 1400px;
-
   margin: auto;
-
   position: relative;
 }
+
 .carousel-viewport {
   overflow: hidden;
   width: 100%;
@@ -65,20 +67,22 @@
   transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
   will-change: transform;
 }
+
 .product-card {
   min-width: 25%;
   padding: 0 10px;
   box-sizing: border-box;
 }
+
 .card-image {
   position: relative;
-  border-radius: 20px 20px 0 0; /* Faqat yuqori burchaklar */
+  border-radius: 20px 20px 0 0;
   overflow: hidden;
   aspect-ratio: 4 / 5;
   background: #eee;
   border: 2px solid #fff;
-  border-bottom: none; /* Pastdan border yo'q */
-  margin-bottom: 0; /* Bo'shliq yo'q */
+  border-bottom: none;
+  margin-bottom: 0;
 }
 
 .card-image img {
@@ -88,8 +92,6 @@
   transition: transform 0.6s ease;
   display: block;
 }
-
-
 
 .product-card:hover .card-image img {
   transform: scale(1.08);
@@ -109,9 +111,7 @@
   align-items: center;
   justify-content: center;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  transition:
-    transform 0.3s,
-    background 0.3s;
+  transition: transform 0.3s, background 0.3s;
 }
 
 .like-btn:hover {
@@ -127,11 +127,10 @@
   padding: 20px 16px 10px;
   background: #fff;
   border: 2px solid #fff;
-  border-top: none; /* Yuqoridan border yo'q */
-  border-radius: 0 0 20px 20px; /* Faqat pastki burchaklar */
-  margin-top: 0; /* Bo'shliq yo'q */
+  border-top: none;
+  border-radius: 0 0 20px 20px;
+  margin-top: 0;
 }
-
 
 .card-title {
   font-family: "Cormorant Garamond", serif;
@@ -148,7 +147,6 @@
   line-height: 1.5;
   min-height: 42px;
 }
-
 
 .card-footer {
   display: flex;
@@ -177,40 +175,26 @@
   color: #fff;
   border-color: #111;
 }
+
 /* ========== NAVIGATION BUTTONS ========== */
 .nav-btn {
   position: absolute;
-
   top: 40%;
-
   transform: translateY(-50%);
-  transition:
-    transform 0.2s,
-    background 0.3s,
-    color 0.3s;
-
+  transition: transform 0.2s, background 0.3s, color 0.3s;
   width: 52px;
-
   height: 52px;
-
   border-radius: 50%;
-
   background: #fff;
-
   border: none;
-
   cursor: pointer;
-
   display: flex;
-
   justify-content: center;
-
   align-items: center;
-
   z-index: 10;
-
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
 }
+
 .nav-btn:hover:not(:disabled) {
   background: #111;
   color: #fff;
@@ -246,10 +230,249 @@
   border-radius: 10px;
 }
 
+/* ========== MODAL — Rasm tepada, ma'lumot pastda ========== */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  padding: 20px;
+  animation: fadeIn 0.3s ease-out;
+}
+
+.modal-content {
+  background: #fff;
+  border-radius: 20px;
+  max-width: 600px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  animation: slideUp 0.4s ease-out;
+}
+
+/* Modal scrollbar */
+.modal-content::-webkit-scrollbar {
+  width: 6px;
+}
+
+.modal-content::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.modal-content::-webkit-scrollbar-thumb {
+  background: #ddd;
+  border-radius: 3px;
+}
+
+.modal-content::-webkit-scrollbar-thumb:hover {
+  background: #bbb;
+}
+
+.modal-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s;
+  z-index: 10;
+  color: #333;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.modal-close:hover {
+  background: #111;
+  color: #fff;
+  transform: rotate(90deg);
+}
+
+/* ===== RASM TEPADA ===== */
+.modal-image-wrapper {
+  width: 100%;
+  height: 350px;
+  overflow: hidden;
+  background: #f5f5f5;
+  border-radius: 20px 20px 0 0;
+}
+
+.modal-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.modal-content:hover .modal-image {
+  transform: scale(1.03);
+}
+
+/* ===== MA'LUMOTLAR PASTDA ===== */
+.modal-info {
+  padding: 32px 36px 36px;
+  background: #fff;
+}
+
+.modal-title {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 32px;
+  font-weight: 600;
+  color: #111;
+  margin-bottom: 12px;
+  line-height: 1.2;
+}
+
+.modal-price {
+  font-size: 24px;
+  font-weight: 700;
+  color: #8b6f47;
+  margin-bottom: 24px;
+}
+
+.modal-description {
+  margin-bottom: 24px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid #eee;
+}
+
+.modal-description h4 {
+  font-size: 14px;
+  font-weight: 700;
+  color: #111;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.modal-description p {
+  font-size: 15px;
+  color: #555;
+  line-height: 1.7;
+  margin: 0;
+}
+
+.modal-specs {
+  margin-bottom: 28px;
+  padding: 20px;
+  background: #faf7f2;
+  border-radius: 12px;
+}
+
+.spec-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.spec-item:last-child {
+  border-bottom: none;
+}
+
+.spec-label {
+  font-weight: 600;
+  color: #555;
+  font-size: 14px;
+}
+
+.spec-value {
+  color: #111;
+  font-size: 14px;
+  font-weight: 500;
+  text-align: right;
+}
+
+.modal-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.btn-order,
+.btn-consult {
+  flex: 1;
+  padding: 14px 28px;
+  border-radius: 50px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  border: none;
+}
+
+.btn-order {
+  background: #111;
+  color: #fff;
+}
+
+.btn-order:hover {
+  background: #8b6f47;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(139, 111, 71, 0.3);
+}
+
+.btn-consult {
+  background: #fff;
+  color: #111;
+  border: 2px solid #111;
+}
+
+.btn-consult:hover {
+  background: #f5f5f5;
+  transform: translateY(-2px);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
 /* ========== RESPONSIVE ========== */
 @media (max-width: 1024px) {
   .product-card {
-    min-width: 33.333%; /* 3 ta ko'rinadi */
+    min-width: 33.333%;
+  }
+
+  .modal-info {
+    padding: 30px;
+  }
+
+  .modal-title {
+    font-size: 28px;
   }
 }
 
@@ -259,18 +482,51 @@
   }
 
   .product-card {
-    min-width: 50%; /* 2 ta ko'rinadi */
+    min-width: 50%;
   }
 
   .nav-btn {
     width: 44px;
     height: 44px;
   }
+
+  .modal-overlay {
+    padding: 16px;
+  }
+
+  .modal-content {
+    max-height: 92vh;
+    border-radius: 16px;
+  }
+
+  .modal-image-wrapper {
+    height: 280px;
+    border-radius: 16px 16px 0 0;
+  }
+
+  .modal-info {
+    padding: 24px;
+  }
+
+  .modal-title {
+    font-size: 26px;
+  }
+
+  .modal-price {
+    font-size: 20px;
+  }
+
+  .modal-close {
+    top: 12px;
+    right: 12px;
+    width: 40px;
+    height: 40px;
+  }
 }
 
 @media (max-width: 480px) {
   .product-card {
-    min-width: 100%; /* 1 ta ko'rinadi */
+    min-width: 100%;
   }
 
   .carousel-wrapper {
@@ -280,5 +536,43 @@
   .nav-btn {
     width: 38px;
     height: 38px;
+  }
+
+  .modal-overlay {
+    padding: 12px;
+  }
+
+  .modal-image-wrapper {
+    height: 240px;
+  }
+
+  .modal-info {
+    padding: 20px;
+  }
+
+  .modal-title {
+    font-size: 22px;
+  }
+
+  .modal-price {
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+
+  .modal-actions {
+    flex-direction: column;
+  }
+
+  .btn-order,
+  .btn-consult {
+    width: 100%;
+  }
+
+  .modal-specs {
+    padding: 16px;
+  }
+
+  .spec-item {
+    padding: 8px 0;
   }
 }
